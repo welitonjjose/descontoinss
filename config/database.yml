@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  host: db
+  port: 5432
+  database: my_app_development
+  username: postgres
+  password: your_password
+
+test:
+  adapter: postgresql
+  host: db
+  port: 5432
+  database: my_app_test
+  username: postgres
+  password: your_password
+
+production:
+  adapter: postgresql
+  host: db
+  port: 5432
+  database: my_app_production
+  username: postgres
+  password: your_password
