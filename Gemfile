@@ -72,3 +72,4 @@ end
 
 gem 'sidekiq'
 gem 'kaminari'
+gem 'devise'
