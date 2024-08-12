@@ -1,0 +1,35 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="d-flex justify-content-center align-items-center vh-100  bg-body-secondary">
+
+  <div class="card centered w-50 borderless">
+    <div class="card-header d-flex justify-content-between">
+      <h3>Lista Propoentes </h3>
+      <%= link_to "New proponent", new_proponent_path %>
+    </div>
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Salário</th>
+        <th scope="col">Handle</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @proponents.each do |proponent| %>
+        <%= render proponent %>
+        <% end %>
+      </tbody>
+    </table>
+
+    <div class="d-flex justify-content-center">
+      <%= paginate @proponents, theme: 'bootstrap-5' %>
+    </div>
+  </div>
+</div>
+
+
+
+

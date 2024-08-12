@@ -72,4 +72,6 @@ end
 
 gem 'sidekiq'
 gem 'kaminari'
+gem 'bootstrap5-kaminari-views'
 gem 'devise'
+gem 'faker'
