@@ -22,6 +22,5 @@
     <% end %>
   </th>
   <td><%= proponent.name %></td>
-  <td><%= proponent.salary %></td>
-  <td>@mdo</td>
+  <td><%= number_to_currency(proponent.salary, unit: "R$", separator: ",", delimiter: ".") %></td>
 </tr>
