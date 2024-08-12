@@ -2,15 +2,16 @@ import { Controller } from "@hotwired/stimulus"
 
 
 export default class extends Controller {
+  static values = { labels: Array, qtd: Array }
   static targets = [ "chart" ]
 
   connect() {
-    const labels = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+    const labels = this.labelsValue;
     const data = {
       labels: labels,
       datasets: [{
-        label: 'Vendas',
-        data: [12, 19, 3, 5, 2, 3, 9, 6, 11, 5, 3, 10],
+        label: 'Funcionários',
+        data: this.qtdValue,
         fill: false,
         borderColor: 'rgb(75, 192, 192)',
         tension: 0.1

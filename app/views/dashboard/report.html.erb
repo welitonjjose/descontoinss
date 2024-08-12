@@ -1,3 +1,5 @@
+<% labels = [] %>
+<% qtd = [] %>
 <div class="d-flex justify-content-center align-items-center bg-body-secondary">
   <div class="card centered w-50 borderless my-5">
     <div class="card-header d-flex justify-content-between">
@@ -5,6 +7,8 @@
     </div>
 
     <% @proponents.each do |range, proponents| %>
+      <% labels << range %>
+      <% qtd << proponents.count %>
       <h3 class="m-3">Faixa: <%= range %></h3>
 
       <table class="table">
@@ -27,4 +31,18 @@
   </div>
 </div>
 </div>
-<canvas data-controller="hello" data-target="hello.chart"></canvas>
+
+<div class="d-flex justify-content-center align-items-center bg-body-secondary">
+  <div class="card centered w-50 borderless my-5">
+    <div class="card-header d-flex justify-content-between">
+      <h3>Gráfico Quantitativo</h3>
+    </div>
+    <canvas
+      data-controller="hello"
+      data-target="hello.chart"
+      data-hello-labels-value="<%=labels %>"
+      data-hello-qtd-value="<%=qtd %>"
+    ></canvas>
+  </div>
+</div>
+
