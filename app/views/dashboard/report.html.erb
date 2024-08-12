@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-center align-items-center bg-body-secondary">
+  <div class="card centered w-50 borderless my-5">
+    <div class="card-header d-flex justify-content-between">
+      <h3>Relatório</h3>
+    </div>
+
+    <% @proponents.each do |range, proponents| %>
+      <h3 class="m-3">Faixa: <%= range %></h3>
+
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Salário</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% proponents.each do |proponent| %>
+          <tr>
+            <td><%= proponent.name %></td>
+            <td><%= number_to_currency(proponent.salary, unit: "R$", separator: ",", delimiter: ".") %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
+</div>
+<canvas data-controller="hello" data-target="hello.chart"></canvas>

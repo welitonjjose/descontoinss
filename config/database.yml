@@ -2,7 +2,7 @@ development:
   adapter: postgresql
   host: db
   port: 5432
-  database: my_app_development
+  database: inss_development
   username: postgres
   password: your_password
 
@@ -10,7 +10,7 @@ test:
   adapter: postgresql
   host: db
   port: 5432
-  database: my_app_test
+  database: inss_test
   username: postgres
   password: your_password
 
@@ -18,6 +18,6 @@ production:
   adapter: postgresql
   host: db
   port: 5432
-  database: my_app_production
+  database: inss_production
   username: postgres
   password: your_password
