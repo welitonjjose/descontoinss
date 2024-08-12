@@ -1,25 +1,37 @@
-# README
+# Projeto Desconto INSS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 
-Things you may want to cover:
+- Ruby
+- PostgreSQL
+- Redis
+- Sidekiq
+- StimulusJs
+- Docker
 
-* Ruby version
+## Autenticação
 
-* System dependencies
+O projeto inclui um sistema de autenticação para garantir a segurança dos dados.
 
-* Configuration
+## Gráficos
 
-* Database creation
+O projeto utiliza a biblioteca ChartsJS para a visualização de dados em formato gráfico.
 
-* Database initialization
+## Configuração do Projeto
 
-* How to run the test suite
+Para configurar o projeto localmente, siga as etapas abaixo:
 
-* Services (job queues, cache servers, search engines, etc.)
+1. Clone o repositório para a sua máquina local.
+2. Instale as dependências do projeto com Bundler, Yarn e NPM.
+3. Configure o banco de dados PostgreSQL.
+4. Inicie o servidor Redis.
+5. Inicie o Sidekiq para processamento de jobs em background.
+6. Inicie o servidor de aplicação.
 
-* Deployment instructions
+## Contribuição
 
-* ...
-# descontoinss
+Contribuições para o projeto são bem-vindas. Por favor, leia as diretrizes de contribuição antes de enviar uma pull request.
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT.
