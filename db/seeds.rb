@@ -2,10 +2,14 @@ require 'faker'
 
 # User.create!(email:  "root@root.com", password: "123456", password_confirmation: "123456")
 
+calc = CalcService.new
+
 25.times do
+  salary = Faker::Number.within(range: 500..6101.06)
   Proponent.create!(
     name: Faker::Name.name,
     document:  Faker::Number.number(digits: 11),
+    born_in: Faker::Date.birthday(min_age: 18, max_age: 65),
 
     street: Faker::Address.street_address,
     number: Faker::Address.building_number,
@@ -16,6 +20,7 @@ require 'faker'
 
     phone: Faker::PhoneNumber.cell_phone,
     phone2: Faker::PhoneNumber.cell_phone,
-    salary: Faker::Number.decimal(l_digits: 3, r_digits: 2),
+    salary: salary,
+    discount: calc.get(salary)[:discounts]
     )
 end

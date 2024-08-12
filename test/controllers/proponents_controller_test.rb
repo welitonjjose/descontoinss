@@ -1,8 +1,11 @@
-require "test_helper"
+require 'test_helper'
 
 class ProponentsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @proponent = proponents(:one)
+    @new_proponent = { name: "New Proponent", document: "987654321", born_in: "1990-01-01",
+                       street: "New Street", district: "New District", city: "New City", state: "New State",
+                       cep: "98765-432", phone: "987654321", salary: 2000.0, discount: 200.0 }
   end
 
   test "should get index" do
@@ -16,8 +19,8 @@ class ProponentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create proponent" do
-    assert_difference("Proponent.count") do
-      post proponents_url, params: { proponent: { born_in: @proponent.born_in, cep: @proponent.cep, city: @proponent.city, district: @proponent.district, document: @proponent.document, name: @proponent.name, number: @proponent.number, phone: @proponent.phone, phone2: @proponent.phone2, salary: @proponent.salary, state: @proponent.state, street: @proponent.street } }
+    assert_difference('Proponent.count') do
+      post proponents_url, params: { proponent: @new_proponent }
     end
 
     assert_redirected_to proponent_url(Proponent.last)
@@ -34,12 +37,14 @@ class ProponentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update proponent" do
-    patch proponent_url(@proponent), params: { proponent: { born_in: @proponent.born_in, cep: @proponent.cep, city: @proponent.city, district: @proponent.district, document: @proponent.document, name: @proponent.name, number: @proponent.number, phone: @proponent.phone, phone2: @proponent.phone2, salary: @proponent.salary, state: @proponent.state, street: @proponent.street } }
+    patch proponent_url(@proponent), params: { proponent: { name: "Updated Name" } }
     assert_redirected_to proponent_url(@proponent)
+    @proponent.reload
+    assert_equal "Updated Name", @proponent.name
   end
 
   test "should destroy proponent" do
-    assert_difference("Proponent.count", -1) do
+    assert_difference('Proponent.count', -1) do
       delete proponent_url(@proponent)
     end
 

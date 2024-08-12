@@ -84,13 +84,19 @@
 
 
     <legend>Salário</legend>
-    <div class="row py-2">
+    <div class="row py-2" data-controller="calc">
       <div class="col-3">
         <%= form.label :salary, style: "display: block" %>
-        <%= form.text_field :salary, class: "form-control", data: { controller: "currency", "currency-target": "input"} %>
+        <%= form.text_field :salary, class: "form-control", data: { controller: "currency", "currency-target": "input", action: "blur->calc#get"} %>
       </div>
-      <div class="col-3"></div>
-      <div class="col-3"></div>
+      <div class="col-3">
+        <strong data-calc-target="discount" class="d-flex justify-content-center align-items-center bg-body-secondary mt-4 p-2">
+          Descontos: <%=@proponent.discount %>
+        </strong>
+      </div>
+      <div class="col-3">
+        <%= form.hidden_field :discount, data: { "calc-target": "input" } %>
+      </div>
     </div>
 
     <hr/>

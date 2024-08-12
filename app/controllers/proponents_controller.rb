@@ -1,4 +1,5 @@
 class ProponentsController < ApplicationController
+  include ActionView::Helpers::NumberHelper
   before_action :set_proponent, only: %i[ show edit update destroy ]
 
   # GET /proponents or /proponents.json
@@ -17,6 +18,7 @@ class ProponentsController < ApplicationController
 
   # GET /proponents/1/edit
   def edit
+    @proponent.salary =  number_to_currency(@proponent.salary, unit: "R$ ", separator: ",", delimiter: ".")
   end
 
   # POST /proponents or /proponents.json
@@ -65,6 +67,6 @@ class ProponentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def proponent_params
-      params.require(:proponent).permit(:name, :document, :born_in, :street, :number, :district, :city, :state, :cep, :phone, :phone2, :salary)
+      params.require(:proponent).permit(:name, :document, :born_in, :street, :number, :district, :city, :state, :cep, :phone, :phone2, :salary, :discount)
     end
 end
